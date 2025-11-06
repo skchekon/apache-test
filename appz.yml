@@ -21,14 +21,14 @@ deploy:
   port:
   - 9369
 
-nodeSelector:
-  nodepool: apache
-
-tolerations:
-  - key: "nodepool"
-    operator: "Equal"
-    value: "apache"
-    effect: "NoSchedule"
+  nodeSelector:
+    nodepool: apache
+  
+  tolerations:
+    - key: "nodepool"
+      operator: "Equal"
+      value: "apache"
+      effect: "NoSchedule"
 
 properties:
   MYSQL_HOST : "172.20.22.64:3306"
