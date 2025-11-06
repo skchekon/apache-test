@@ -38,4 +38,4 @@ properties:
   DB_PASSWORD:
      vault: DB_PASSWORD
 
-  revision : 1
+  revision : 2
