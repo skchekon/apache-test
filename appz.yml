@@ -5,7 +5,7 @@ app:
 
 build:
   version: 1.0
-  env: DEV
+  env: PROD
   repo: https://github.com/TI-Pro/TIWebsite
   args:
     WORK_DIR: "/appz/server/source/apache"
@@ -14,19 +14,28 @@ build:
   image_template: apache-2.4
 
 deploy:
-  context: tradeideas/DEV
+  context: tipreprod/PROD
   #ingress: none
   replicas: 1
-  resources: x-large
+  #resources: x-large
   port:
   - 9369
 
+nodeSelector:
+  nodepool: apache
+
+tolerations:
+  - key: "nodepool"
+    operator: "Equal"
+    value: "apache"
+    effect: "NoSchedule"
+
 properties:
-  MYSQL_HOST : "mysql-5-7:3306"
+  MYSQL_HOST : "172.20.22.64:3306"
   MYSQL_DATABASE : ""
   MYSQL_USER : ""
   ENABLE_HA : "no"
   DB_PASSWORD:
      vault: DB_PASSWORD
 
-  revision : 7
+  revision : 1
