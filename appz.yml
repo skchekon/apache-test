@@ -1,6 +1,6 @@
 app:
-  name: tiq_marketexplorer
-  code: tiq_marketexplorer
+  name: apache
+  code: apache
   notify: appzdev@cloudbourne.co
 
 build:
@@ -11,7 +11,7 @@ build:
     WORK_DIR: "/appz/server/source/apache"
   build_file: none
   output_files: output/*.zip
-  image_template: apache-2.4
+  image_template: phphttpd-2.4
 
 deploy:
   context: tipreprod/PROD
@@ -31,11 +31,11 @@ tolerations:
     effect: "NoSchedule"
 
 properties:
-  MYSQL_HOST : "172.20.22.64:3306"
+  MYSQL_HOST : "mysql-slave-8-1:3306"
   MYSQL_DATABASE : ""
-  MYSQL_USER : ""
+  MYSQL_USER : "web_client"
   ENABLE_HA : "no"
   DB_PASSWORD:
      vault: DB_PASSWORD
 
-  revision : 2
+  revision : 1
