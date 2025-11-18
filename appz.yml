@@ -15,19 +15,18 @@ build:
 
 deploy:
   context: tipreprod/PROD
-  #ingress: none
   replicas: 1
-  #resources: x-large
   port:
-  - 9369
+    - 9369
   nodeSelector:
     nodepool: apache
   tolerations:
-    - key: "nodepool"
-      operator: "Equal"
-      value: "apache"
-      effect: "NoSchedule"
+    - key: nodepool
+      operator: Equal
+      value: apache
+      effect: NoSchedule
 
+# Uncomment if/when you need a PVC
 # volumes:
 #   - claim: lamp-pvc
 #     mount: /var/www/
@@ -35,26 +34,15 @@ deploy:
 #     size: 64Gi
 #     matchLabels: false
 
-nodeSelector:
-  nodepool: apache
-
-tolerations:
-  - key: "nodepool"
-    operator: "Equal"
-    value: "apache"
-    effect: "NoSchedule"
-
 properties:
-  MYSQL_HOST : "mysql-slave-8-1:3306"
-  MYSQL_DATABASE : ""
-  MYSQL_USER : "web_client"
-  ENABLE_HA : "no"
+  MYSQL_HOST: "mysql-slave-8-1:3306"
+  MYSQL_DATABASE: ""
+  MYSQL_USER: "web_client"
+  ENABLE_HA: "no"
   DB_PASSWORD:
-     vault: DB_PASSWORD
-     
+    vault: DB_PASSWORD
   ACTIVECAMPAIGN_URL:
     vault: ACTIVECAMPAIGN_URL
   ACTIVECAMPAIGN_API_KEY:
     vault: ACTIVECAMPAIGN_API_KEY
-
-  revision : 3
+  revision: 4
