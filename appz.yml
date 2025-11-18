@@ -21,6 +21,13 @@ deploy:
   port:
   - 9369
 
+volumes:
+  - claim: lamp-pvc
+    mount: /appz/data
+    name: lamp-pvc
+    size: 64Gi
+    matchLabels: false
+
 nodeSelector:
   nodepool: apache
 
