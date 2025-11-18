@@ -20,13 +20,20 @@ deploy:
   #resources: x-large
   port:
   - 9369
+  nodeSelector:
+    nodepool: apache
+  tolerations:
+    - key: "nodepool"
+      operator: "Equal"
+      value: "apache"
+      effect: "NoSchedule"
 
-volumes:
-  - claim: lamp-pvc
-    mount: /var/www/
-    name: lamp-pvc
-    size: 64Gi
-    matchLabels: false
+# volumes:
+#   - claim: lamp-pvc
+#     mount: /var/www/
+#     name: lamp-pvc
+#     size: 64Gi
+#     matchLabels: false
 
 nodeSelector:
   nodepool: apache
