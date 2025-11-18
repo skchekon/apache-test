@@ -37,5 +37,10 @@ properties:
   ENABLE_HA : "no"
   DB_PASSWORD:
      vault: DB_PASSWORD
+     
+  ACTIVECAMPAIGN_URL:
+    vault: ACTIVECAMPAIGN_URL
+  ACTIVECAMPAIGN_API_KEY:
+    vault: ACTIVECAMPAIGN_API_KEY
 
-  revision : 1
+  revision : 2
