@@ -23,7 +23,7 @@ deploy:
 
 volumes:
   - claim: lamp-pvc
-    mount: /appz/data
+    mount: /var/www/
     name: lamp-pvc
     size: 64Gi
     matchLabels: false
@@ -50,4 +50,4 @@ properties:
   ACTIVECAMPAIGN_API_KEY:
     vault: ACTIVECAMPAIGN_API_KEY
 
-  revision : 2
+  revision : 3
