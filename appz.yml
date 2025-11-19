@@ -55,4 +55,4 @@ properties:
     vault: ACTIVECAMPAIGN_URL
   ACTIVECAMPAIGN_API_KEY:
     vault: ACTIVECAMPAIGN_API_KEY
-  revision: 9
+  revision: 10
