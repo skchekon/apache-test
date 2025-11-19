@@ -39,6 +39,14 @@ properties:
   MYSQL_DATABASE: ""
   MYSQL_USER: "web_client"
   ENABLE_HA: "no"
+  ROLE: "productweb"
+  ENVIRONMENT: "test"
+  TOKEN:
+    vault: TOKEN
+  GITHUB_USER:
+    vault: GITHUB_USER
+  GITHUB_URL: "https://$GITHUB_USER:$TOKEN@github.com/TI-Pro"
+  GIT_BRANCH: "8833-preprod"
   DB_PASSWORD:
     vault: DB_PASSWORD
   ACTIVECAMPAIGN:
@@ -47,4 +55,4 @@ properties:
     vault: ACTIVECAMPAIGN_URL
   ACTIVECAMPAIGN_API_KEY:
     vault: ACTIVECAMPAIGN_API_KEY
-  revision: 7
+  revision: 8
