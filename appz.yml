@@ -27,12 +27,12 @@ deploy:
       effect: NoSchedule
 
 # Uncomment if/when you need a PVC
-# volumes:
-#   - claim: lamp-pvc
-#     mount: /var/www/
-#     name: lamp-pvc
-#     size: 64Gi
-#     matchLabels: false
+volumes:
+  - claim: lamp-pvc
+    mount: /var/www/
+    name: lamp-pvc
+    size: 64Gi
+    matchLabels: false
 
 properties:
   MYSQL_HOST: "mysql-slave-8-1:3306"
