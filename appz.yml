@@ -18,13 +18,13 @@ deploy:
   replicas: 1
   port:
     - 9369
-  nodeSelector:
-    nodepool: apache
-  tolerations:
-    - key: nodepool
-      operator: Equal
-      value: apache
-      effect: NoSchedule
+  # nodeSelector:
+  #   nodepool: apache
+  # tolerations:
+  #   - key: nodepool
+  #     operator: Equal
+  #     value: apache
+  #     effect: NoSchedule
 
 # # Uncomment if/when you need a PVC
 # volumes:
@@ -55,4 +55,4 @@ properties:
     vault: ACTIVECAMPAIGN_URL
   ACTIVECAMPAIGN_API_KEY:
     vault: ACTIVECAMPAIGN_API_KEY
-  revision: 12
+  revision: 01
